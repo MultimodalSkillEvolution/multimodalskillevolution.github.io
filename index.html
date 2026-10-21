@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf9f6">
+  <meta name="description" content="MUSE turns successful multimodal reasoning experiences into reusable, image-grounded skills. Explore the method, experiments, and anonymous manuscript.">
+  <meta name="author" content="Anonymous Authors">
+  <meta property="og:title" content="MUSE: Evolving Grounded Multimodal Skills">
+  <meta property="og:description" content="From episodic visual successes to reusable perceptual-reasoning procedures. Anonymous research project page.">
+  <meta property="og:type" content="website">
+  <title>MUSE | Evolving Grounded Multimodal Skills</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="results-data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#" aria-label="MUSE home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 25V7l12 11L28 7v18M4 7l12 22L28 7"/></svg>MUSE</a>
+      <nav aria-label="Main navigation"><a href="#overview">Method</a><a href="#results">Results</a><a href="#example">Example</a><a href="#analysis">Analysis</a></nav>
+      <a class="nav-paper" href="assets/muse-paper.pdf" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero container" aria-labelledby="paper-title">
+      <div class="hero-wordmark" aria-hidden="true">MUSE<span class="wordmark-star">✳</span></div>
+      <h1 id="paper-title"><span class="sr-only">MUSE: </span>Evolving <em>Grounded Multimodal Skills</em><br class="desktop-break"> for Cross-Episode Agent Improvement</h1>
+      <p class="author-line">Anonymous Authors</p>
+      <p class="hero-description">Learn <strong>where to look, how to reason, and what to verify.</strong></p>
+      <div class="hero-links">
+        <a class="button primary" href="assets/muse-paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H5v18h14V8zM14 3v5h5M8 12h8M8 16h6"/></svg>Read the paper <span aria-hidden="true">↗</span></a>
+        <a class="button secondary" href="#results">Explore results <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="container overview-section" id="overview" aria-labelledby="overview-title">
+      <div class="section-heading compact-heading"><h2 id="overview-title">From experience to reusable skills.</h2></div>
+      <p class="overview-lead">MUSE distills verified visual reasoning into skills that guide observation, reasoning, and verification on new images.</p>
+      <figure class="main-figure">
+        <button class="figure-button" data-zoom="assets/framework.webp" data-caption="MUSE framework. Skills evolve offline from admitted multimodal trajectories, then guide reasoning on new images with a frozen library." aria-label="Enlarge MUSE framework figure"><img src="assets/framework.webp" width="2400" height="885" alt="MUSE framework: reasoning and verification produce admitted trajectories, which evolve into a skill library for gated reuse on new tasks." fetchpriority="high"><span class="zoom-hint" aria-hidden="true">↗ Expand figure</span></button>
+        <figcaption><strong>Evolve offline.</strong> Retrieve and verify on new images.</figcaption>
+      </figure>
+      <div class="headline-results">
+        <div><span class="metric">+14.74<span>pp</span></span><p>Average accuracy gain</p><small>GPT-5.4 · 72.52% → 87.26%</small></div>
+        <div><span class="metric">+31.30<span>pp</span></span><p>MathVerse accuracy gain</p><small>GPT-5.4 · 62.10% → 93.40%</small></div>
+        <div><span class="metric">91.84<span>%</span></span><p>Average accuracy</p><small>Claude-Sonnet-4.6 · four benchmarks</small></div>
+      </div>
+      <details class="disclosure method-details">
+        <summary>Method &amp; evaluation details <span class="disclosure-icon" aria-hidden="true"></span></summary>
+        <div class="method-detail-content">
+          <div><h3>Build the library</h3><p>Independently solved, error-free seed trajectories with correct answers are distilled into structured profiles: applicability, visual hints, reasoning hints, verifier hints, and retrieval descriptors.</p></div>
+          <div><h3>Reuse on new tasks</h3><p>The main setting uses 20 labeled seeds, 20 skill profiles, and 20 offline rounds. The library is frozen before evaluation. Reuse is checked against the current image, without evaluation labels or model parameter updates.</p></div>
+        </div>
+      </details>
+    </section>
+
+    <section class="container section-pad" id="results" aria-labelledby="results-title">
+      <div class="section-heading compact-heading"><h2 id="results-title">Results</h2><p>Five backbones on four benchmarks; two 8B models on M3CoT.</p></div>
+      <div class="results-explorer">
+        <div class="results-toolbar">
+          <div class="model-control"><label for="model-select">Backbone</label><select id="model-select">
+            <optgroup label="Advanced backbones · four benchmarks"><option value="gpt54">GPT-5.4</option><option value="gpt54mini">GPT-5.4-mini</option><option value="gemini">Gemini-3-Flash</option><option value="claude">Claude-Sonnet-4.6</option><option value="glm">GLM-4.6-V</option></optgroup>
+            <optgroup label="8B open-source models · M3CoT only"><option value="internvl">InternVL3.5-8B</option><option value="qwen">Qwen3-VL-8B-Thinking</option></optgroup>
+          </select></div>
+          <a class="download-link" href="assets/results.csv" download>Download CSV <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="results-summary" aria-live="polite" aria-atomic="true"><div><span class="summary-label" id="score-label">Average accuracy</span><span class="summary-score"><span id="direct-score">72.52</span><span class="score-arrow" aria-hidden="true">→</span><strong id="muse-score">87.26<span>%</span></strong></span></div><div class="gain-block"><strong id="gain-score">+14.74 pp</strong><span>MUSE over Direct</span></div></div>
+        <div class="chart-header"><h3>Accuracy (%)</h3><div class="chart-legend"><span><i class="direct-dot"></i>Direct</span><span><i class="muse-dot"></i>MUSE</span></div></div>
+        <div id="results-chart" class="results-chart" role="img" aria-label="GPT-5.4 benchmark accuracies for Direct and MUSE"></div>
+        <details class="disclosure results-details">
+          <summary>Full comparison table <span class="disclosure-icon" aria-hidden="true"></span></summary>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Results table, scroll horizontally on small screens"><table id="results-table"><caption class="sr-only">Accuracy by method for the selected backbone</caption><thead></thead><tbody></tbody></table></div>
+          <p class="results-note" id="results-note">Mean accuracy over three independent runs. “Avg.” is the unweighted mean across four benchmarks.</p>
+          <p class="results-note baseline-note">Baselines follow the manuscript’s implementations. AMem retrieves evolution-stage memory snippets.</p>
+        </details>
+      </div>
+      <p class="source-note">Paper-reported results · <a href="assets/muse-paper.pdf" target="_blank" rel="noopener">Table 1 &amp; Appendix ↗</a></p>
+      <noscript><p><a href="assets/results.csv">Download the complete results table.</a></p></noscript>
+    </section>
+
+    <section class="case-section section-pad" id="example" aria-labelledby="case-title">
+      <div class="container">
+        <div class="section-heading compact-heading"><h2 id="case-title">One skill. A new image.</h2><p>A counting procedure transfers to a new chart.</p></div>
+        <figure class="case-figure"><button class="figure-button" data-zoom="assets/case.webp" data-caption="Paper example: an evolved bar-chart counting skill transfers to a new image and threshold. MUSE answers 0, while the direct baseline answers 1." aria-label="Enlarge the skill transfer example"><img src="assets/case.webp" width="2400" height="733" loading="lazy" alt="A bar-chart counting skill transfers from a vertical chart to a horizontal chart. On the new task, MUSE correctly answers 0 while the baseline answers 1."><span class="zoom-hint" aria-hidden="true">↗ Expand figure</span></button></figure>
+      </div>
+    </section>
+
+    <section class="container section-pad" id="analysis" aria-labelledby="analysis-title">
+      <div class="section-heading compact-heading"><h2 id="analysis-title">What makes a skill useful?</h2></div>
+      <div class="analysis-tabs" role="tablist" aria-label="Diagnostic experiments">
+        <button id="analysis-tab-grounding" role="tab" aria-selected="true" aria-controls="analysis-panel-grounding" data-analysis="grounding">Visual grounding</button>
+        <button id="analysis-tab-evolution" role="tab" aria-selected="false" aria-controls="analysis-panel-evolution" data-analysis="evolution" tabindex="-1">Iterative evolution</button>
+        <button id="analysis-tab-continual" role="tab" aria-selected="false" aria-controls="analysis-panel-continual" data-analysis="continual" tabindex="-1">Across domains</button>
+      </div>
+      <div class="analysis-panel" id="analysis-panel-grounding" role="tabpanel" aria-labelledby="analysis-tab-grounding" tabindex="0">
+        <div class="analysis-copy"><span class="experiment-label">GPT-5.4 / MathVista</span><h3>Keep visual guidance.</h3><p>Removing multimodal skill descriptions lowers accuracy from <strong>83.1% to 71.3%</strong>, even when the solver still sees the image.</p></div>
+        <figure><button class="figure-button" data-zoom="assets/analysis.webp" data-caption="MathVista grounding diagnostics. Reuse frequency is measured during offline evolution; reuse accuracy is final-answer accuracy within the evaluation skill-use subset." aria-label="Enlarge visual grounding analysis"><img src="assets/analysis.webp" width="1643" height="2400" loading="lazy" alt="Grounding ablation bars and skill-reuse diagnostics. Full MUSE reaches 83.1% overall accuracy."><span class="zoom-hint" aria-hidden="true">↗ Expand</span></button><figcaption>Reuse frequency: offline evolution. Accuracy: evaluation.</figcaption></figure>
+      </div>
+      <div class="analysis-panel" id="analysis-panel-evolution" role="tabpanel" aria-labelledby="analysis-tab-evolution" tabindex="0" hidden>
+        <div class="analysis-copy"><span class="experiment-label">GPT-5.4 / MathVerse</span><h3>Refine beyond the first round.</h3><p>Continued skill evolution raises accuracy from <strong>79.0% to 93.4%</strong> compared with first-round profiles alone.</p></div>
+        <figure><button class="figure-button" data-zoom="assets/ablation_mathverse.webp" data-caption="MathVerse ablations. “w/o Evol.” keeps first-round profiles and disables subsequent refinement; Direct uses no skill guidance." aria-label="Enlarge MathVerse ablation figure"><img src="assets/ablation_mathverse.webp" width="2400" height="1456" loading="lazy" alt="MathVerse: Direct 62.1%, without multimodal skills 78.3%, first-round skills 79.0%, full MUSE 93.4%. A second panel compares feedback ablations."><span class="zoom-hint" aria-hidden="true">↗ Expand</span></button><figcaption>“w/o Evol.” retains the first-round skills.</figcaption></figure>
+      </div>
+      <div class="analysis-panel" id="analysis-panel-continual" role="tabpanel" aria-labelledby="analysis-tab-continual" tabindex="0" hidden>
+        <div class="analysis-copy"><span class="experiment-label">M3CoT / Domain stream</span><h3>Evolve with the domain.</h3><p>Continued evolution outperforms freezing after Commonsense on the following Science and Mathematics stages.</p></div>
+        <figure><button class="figure-button" data-zoom="assets/continual.webp" data-caption="Continual skill evolution on M3CoT. Libraries are frozen at each stage boundary for evaluation. Compare methods within each stage, since domains differ." aria-label="Enlarge continual evolution figure"><img src="assets/continual.webp" width="1583" height="2400" loading="lazy" alt="Continual evolution results across Commonsense, Science and Mathematics, plus accuracy as evolution examples increase from 10 to 100."><span class="zoom-hint" aria-hidden="true">↗ Expand</span></button><figcaption>Compare methods within each domain stage.</figcaption></figure>
+      </div>
+    </section>
+  </main>
+  <footer class="container site-footer"><a class="footer-brand" href="#">MUSE</a><p>Anonymous research project</p><div class="footer-links"><a href="assets/muse-paper.pdf" target="_blank" rel="noopener">Paper ↗</a><a href="#main" class="back-top">Back to top ↑</a></div></footer>
+  <dialog id="figure-dialog" class="figure-dialog" aria-labelledby="dialog-caption"><div class="dialog-toolbar"><span>Paper figure</span><button id="close-dialog" aria-label="Close expanded figure">Close <span aria-hidden="true">×</span></button></div><div class="dialog-image-wrap"><img id="dialog-image" alt=""></div><p id="dialog-caption"></p></dialog>
+</body>
+</html>
