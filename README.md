@@ -10,6 +10,8 @@ Run `python3 -m http.server 8000` in this directory and open `http://localhost:8
 
 ## GitHub Pages
 
+Target repository: `MultimodalSkillEvolution/multimodalskillevolution.github.io`.
+
 Publish the root directory of the `main` branch. The `.nojekyll` file enables direct static-file deployment.
 
 - `index.html`: page content
